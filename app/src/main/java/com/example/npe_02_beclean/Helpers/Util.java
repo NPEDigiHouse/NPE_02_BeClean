@@ -21,4 +21,19 @@ public class Util {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         return sharedPreferences.getString(USER_ID_KEY, "");
     }
+
+    public static String convertToRupiah(String money) {
+        String temp = "";
+        for (int i = money.length() - 1, j = 1; i >= 0; i--, j++) {
+            temp += money.charAt(i);
+            if (j % 3 == 0 && i > 0) temp += ".";
+        }
+
+        String ans = "";
+        for (int i = temp.length() - 1; i >= 0; i--) {
+            ans += temp.charAt(i);
+        }
+
+        return "Rp. " + ans;
+    }
 }

@@ -119,12 +119,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void saveUserData() {
-        // get user data from textview
+        // set user data
+        String userId = generateRandomNumber().toString();
         String nama = etNama.getText().toString();
         String alamat = etAlamat.getText().toString();
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
-        String userId = generateRandomNumber().toString();
+        Integer money = 100_000;
 
         // check if user don't upload a photo then use default image
         if (photoLocation == null) {
@@ -145,12 +146,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         String urlPhotoProfile = uri.toString();
 
                         // make user data map
-                        Map<String, String> userDataMap = new HashMap<String, String>() {{
+                        Map<String, Object> userDataMap = new HashMap<String, Object>() {{
                             put("name", nama);
                             put("address", alamat);
                             put("email", email);
                             put("password", password);
                             put("url_photo_profile", urlPhotoProfile);
+                            put("money", money);
                         }};
 
                         // add user data to firebase
@@ -183,10 +185,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
             }
         });
-
-
-
-
 
     }
 

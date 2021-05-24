@@ -34,10 +34,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/civ_photo_profile_profile"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/example_face"
+            tools:src="@drawable/example_face"
             android:scaleType="centerCrop"
             app:civ_border_width="1dp"
             app:civ_border_color="@color/green_primary"
@@ -50,8 +50,8 @@
             android:id="@+id/tv_hello"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toTopOf="@id/civ_photo_profile_profile"
+            app:layout_constraintStart_toEndOf="@id/civ_photo_profile_profile"
             android:text="Hi,"
             android:fontFamily="@font/sogoe_ui"
             android:textStyle="bold"
@@ -59,7 +59,7 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tv_name_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@id/tv_hello"
@@ -67,7 +67,7 @@
             app:layout_constraintStart_toEndOf="@id/tv_hello"
             android:layout_marginLeft="2dp"
             android:fontFamily="@font/sogoe_ui"
-            android:text="Nissa"
+            tools:text="Nissa"
             android:textStyle="bold"
             android:textColor="@color/grey_primary"
             android:textSize="20dp"/>
@@ -75,14 +75,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Silver Member"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_name_profile"
             app:layout_constraintStart_toStartOf="@id/tv_hello"
             android:textSize="15sp"/>
         <TextView
             android:id="@+id/tv_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/profile_image"
+            app:layout_constraintTop_toBottomOf="@id/civ_photo_profile_profile"
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_primary"
             android:text="Edit Profile"
