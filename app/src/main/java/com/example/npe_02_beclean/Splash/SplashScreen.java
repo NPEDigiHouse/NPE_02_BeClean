@@ -8,20 +8,31 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.example.npe_02_beclean.Activities.LoginActivity;
+import com.example.npe_02_beclean.Activities.MainActivity;
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 
 public class SplashScreen extends Activity {
-    //Oncreate
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Atur Layout
         setContentView(R.layout.splash_screen);
-        // Handler untuk pindah activty setelah delay
+
+        // set timer for 2 seconds
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                // check if user is already login
+                String userId = Util.getUserIdLocal(SplashScreen.this);
+                Intent intent;
+                if (userId.isEmpty()) {
+                    intent = new Intent(SplashScreen.this, LoginActivity.class);
+                } else {
+                    intent = new Intent(SplashScreen.this, MainActivity.class);
+                }
+
+                // start activity
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();

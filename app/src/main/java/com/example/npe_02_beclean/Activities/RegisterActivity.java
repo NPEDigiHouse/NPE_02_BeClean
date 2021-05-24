@@ -13,6 +13,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -68,6 +69,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_daftar_register:
                 if (cbSetuju.isChecked()) {
+                    // change state to loading
+                    btnMasuk.setEnabled(false);
+                    btnDaftar.setEnabled(false);
+                    btnDaftar.setText("Loading...");
+
                     saveUserData();
                 } else {
                     Toast.makeText(this, "Tolong centang persyaratan kami :)", Toast.LENGTH_SHORT).show();
@@ -156,10 +162,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
+                        // save user id to local (user's device)
+                        Util.saveUserIdToLocal(RegisterActivity.this, userId);
+
                         // move to MainActivity
                         Intent goToMain = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(goToMain);
                         finishAffinity();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(RegisterActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
+
+                        // change back the state
+                        btnMasuk.setEnabled(true);
+                        btnDaftar.setEnabled(true);
+                        btnDaftar.setText("Masuk");
                     }
                 });
             }

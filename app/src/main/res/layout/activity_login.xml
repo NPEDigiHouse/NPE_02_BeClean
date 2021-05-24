@@ -45,7 +45,7 @@
             android:layout_marginTop="40dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_email"
+                android:id="@+id/et_email_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_2_exm"
@@ -64,7 +64,7 @@
             android:layout_marginTop="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_password"
+                android:id="@+id/et_password_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_3_pas"

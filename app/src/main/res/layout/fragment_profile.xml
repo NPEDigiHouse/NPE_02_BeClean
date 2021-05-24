@@ -270,6 +270,7 @@
             </TableRow>
         </TableLayout>
         <TextView
+            android:id="@+id/tv_keluar_profile"
             android:layout_width="match_parent"
             android:layout_marginHorizontal="9dp"
             android:layout_height="wrap_content"
