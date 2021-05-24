@@ -5,27 +5,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.npe_02_beclean.R;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
-    Button btnLogin;
+
+    // widgets
+    private Button btnLogin;
+    private TextView btnDaftar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = findViewById(R.id.btn_masuk);
+        // initialize widgets
+        btnLogin = findViewById(R.id.btn_masuk_login);
+        btnDaftar = findViewById(R.id.tv_daftar_login);
+
+        // if button clicked
         btnLogin.setOnClickListener(this);
+        btnDaftar.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_masuk:
-                Intent i = new Intent(this, MainActivity.class);
-                startActivity(i);
+            case R.id.btn_masuk_login:
+                Intent goToMain = new Intent(this, MainActivity.class);
+                startActivity(goToMain);
+                break;
+            case R.id.tv_daftar_login:
+                Intent goToRegister = new Intent(this, RegisterActivity.class);
+                startActivity(goToRegister);
                 break;
         }
     }
