@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "870396689346",
+    "firebase_url": "https://beclean-846ed-default-rtdb.firebaseio.com",
+    "project_id": "beclean-846ed",
+    "storage_bucket": "beclean-846ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870396689346:android:a61be0d3de833b8018f45b",
+        "android_client_info": {
+          "package_name": "com.example.npe_02_beclean"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870396689346-r2natjjdj2k92dmjmtqsgl6h7tabm2m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4o59OE4ha3jbi65mR5DZ_hQebuCWb1Es"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870396689346-r2natjjdj2k92dmjmtqsgl6h7tabm2m0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
