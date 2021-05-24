@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.npe_02_beclean.Activities.EditProfileActivity;
 import com.example.npe_02_beclean.Activities.LoginActivity;
 import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
@@ -29,7 +30,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     // widgets
     private CircleImageView civPhotoProfile;
-    private TextView btnKeluar, tvName;
+    private TextView btnKeluar, btnEditProfile, tvName;
 
     public static ProfileFragment newInstance() {
         ProfileFragment fragment = new ProfileFragment();
@@ -46,14 +47,14 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         civPhotoProfile = view.findViewById(R.id.civ_photo_profile_profile);
         tvName = view.findViewById(R.id.tv_name_profile);
         btnKeluar = view.findViewById(R.id.tv_keluar_profile);
+        btnEditProfile = view.findViewById(R.id.tv_edit_profile_profile);
 
         // set user data
         setUserData();
 
-
         // if button clicked
         btnKeluar.setOnClickListener(this);
-
+        btnEditProfile.setOnClickListener(this);
 
         return view;
     }
@@ -61,6 +62,11 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_edit_profile_profile:
+                // move intent to edit profile
+                Intent goToEditProfile = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(goToEditProfile);
+                break;
             case R.id.tv_keluar_profile:
                 // delete user id value from shared preferences
                 Util.saveUserIdToLocal(getActivity(), null);

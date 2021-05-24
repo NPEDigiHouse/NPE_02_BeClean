@@ -79,7 +79,7 @@
             app:layout_constraintStart_toStartOf="@id/tv_hello"
             android:textSize="15sp"/>
         <TextView
-            android:id="@+id/tv_edit_profile"
+            android:id="@+id/tv_edit_profile_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/civ_photo_profile_profile"
@@ -98,7 +98,7 @@
             android:id="@+id/tl_paid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_edit_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_edit_profile_profile"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="15dp"
