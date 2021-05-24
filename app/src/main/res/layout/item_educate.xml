@@ -1,0 +1,44 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:layout_marginBottom="10dp"
+    android:paddingVertical="10dp"
+    android:background="@drawable/bg_edu"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/iv_icon_edu"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_icon_awesome_trash_alt"
+        app:tint="@color/grey_primary"
+        app:layout_constraintTop_toTopOf="@id/tv_title_edu"
+        app:layout_constraintBottom_toBottomOf="@id/tv_content_edu"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/tv_title_edu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Memiliki Tempat Sampah"
+        app:layout_constraintStart_toEndOf="@id/iv_icon_edu"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/sogoe_ui"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/tv_content_edu"
+        android:layout_width="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content"
+        android:maxWidth="300dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/grey_medium"
+        android:text="Tidak ada salahnya kamu memiliki tempat sampah di dalam rumah. Namun, kamu mesti memperhatikan"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_edu"
+        app:layout_constraintStart_toEndOf="@id/iv_icon_edu"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

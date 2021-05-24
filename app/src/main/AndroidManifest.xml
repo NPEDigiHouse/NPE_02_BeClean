@@ -9,13 +9,28 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.NPE_02_BeClean">
-        <activity android:name=".splash.SplashScreen">
+        <activity android:name=".Activities.EditProfileActivity"></activity>
+        <activity android:name=".Activities.EdukasiActivity" />
+        <activity android:name=".Activities.CategoryActivity" />
+        <activity android:name=".Admin.AddDiscountActivity" />
+        <activity android:name=".Admin.AddPembersihActivity" />
+        <activity android:name=".Activities.NotifActivity" />
+        <activity android:name=".Activities.PaidActivity" />
+        <activity android:name=".Activities.PembayaranActivity" />
+        <activity android:name=".Activities.TimPembersihActivity" />
+        <activity android:name=".Admin.PembersihActivity" />
+        <activity android:name=".Admin.DiscountActivity" />
+        <activity android:name=".Admin.MainAdminActivity" />
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Splash.SplashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MainActivity"/>
+        <activity android:name=".Activities.MainActivity" />
     </application>
 
 </manifest>

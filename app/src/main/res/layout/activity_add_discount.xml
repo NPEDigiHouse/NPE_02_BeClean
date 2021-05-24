@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".Admin.AddDiscountActivity">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:paddingVertical="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Form Tambah Diskon"
+            android:textColor="@color/blue_primary"
+            style="@style/ShadowText"
+            android:textStyle="bold"
+            android:textSize="25dp"
+
+            />
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_primary"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_nama_diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Diskon"
+                android:layout_marginTop="13dp"
+                app:boxBackgroundColor="@color/trans"
+                app:boxStrokeColor="@color/grey_primary"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="#AEAEAE">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sogoe_ui"
+                    android:background="@color/trans"
+                    android:inputType="text"
+                    android:textSize="15dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_besar_diskon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Besar Diskon"
+                android:layout_marginTop="13dp"
+                app:boxBackgroundColor="@color/trans"
+                app:boxStrokeColor="@color/grey_primary"
+                app:endIconDrawable="@drawable/ic_percentage"
+                app:endIconTint="@color/grey_primary"
+                app:endIconMode="custom"
+
+                app:errorEnabled="true"
+                app:hintTextColor="#AEAEAE">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sogoe_ui"
+                    android:background="@color/trans"
+                    android:inputType="text"
+                    android:textSize="15dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tf_waktu_kadaluarsa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Waktu Kadaluarsa"
+                android:layout_marginTop="13dp"
+                app:boxBackgroundColor="@color/trans"
+                app:boxStrokeColor="@color/grey_primary"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:hintTextColor="#AEAEAE">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sogoe_ui"
+                    android:background="@color/trans"
+                    android:inputType="text"
+                    android:textSize="15dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pilih Tipe"
+                android:textColor="@color/grey_primary"
+                android:textSize="14sp"
+                android:layout_marginLeft="13dp"
+                />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_masuk"
+            android:layout_width="180dp"
+            android:layout_marginTop="20sp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="0dp"
+            android:background="@drawable/bg_btn_rect"
+            android:elevation="1dp"
+            android:fontFamily="@font/sogoe_ui"
+            android:text="Tambahkan"
+            android:textAllCaps="false"
+            android:shadowRadius="3.0"
+            android:shadowDx="3"
+            android:shadowColor="@color/grey_primary"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:backgroundTint="@null"
+            android:layout_marginBottom="30dp"
+            />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

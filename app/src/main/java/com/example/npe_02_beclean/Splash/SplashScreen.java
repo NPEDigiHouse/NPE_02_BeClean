@@ -1,4 +1,4 @@
-package com.example.npe_02_beclean.splash;
+package com.example.npe_02_beclean.Splash;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.os.Handler;
 
 import androidx.annotation.Nullable;
 
-import com.example.npe_02_beclean.activities.MainActivity;
+import com.example.npe_02_beclean.Activities.LoginActivity;
 import com.example.npe_02_beclean.R;
 
 public class SplashScreen extends Activity {
@@ -21,7 +21,7 @@ public class SplashScreen extends Activity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 finish();

@@ -1,3 +1,169 @@
 <resources>
     <string name="app_name">BeClean</string>
+    <!--  context  -->
+    <!--  Login Activity  -->
+    <string name="login_1_wlc">Selamat datang di BeClean</string>
+    <string name="login_2_exm">example@gmail.com</string>
+    <string name="login_3_pas">password</string>
+    <string name="login_4_msk">Masuk</string>
+    <string name="login_5_ald">Atau Lanjutkan Dengan</string>
+    <string name="login_6_blm">Belum Punya Akun?</string>
+    <string name="login_7_dft"><u>Daftar</u></string>
+
+    <!--  Daftar Activity  -->
+    <string name="daftar_1_bua">Buat Akun Anda</string>
+    <string name="daftar_2_nma">Nama</string>
+    <string name="daftar_3_alm">Alamat</string>
+    <string name="daftar_4_ema">Email</string>
+    <string name="daftar_5_pass">Password</string>
+    <string name="daftar_6_den">Dengan mendaftar, Anda menyetujui persyaratan
+layanan dan kebijakan privasi</string>
+    <string name="daftar_7_daf">Daftar</string>
+    <string name="daftar_8_sdh">Sudah Punya Akun?</string>
+    <string name="daftar_9_msk"><u>Masuk</u></string>
+
+    <!-- admin context  -->
+    <string name="dashboard_1_dat">Data Pembersih</string>
+    <string name="form_1_for">Form Data Pembersih</string>
+    <string name="form_2_nam">Nama Data Pembersih</string>
+    <string name="form_3_jum">Jumlah Data Pembersih</string>
+    <string name="form_4_nam">Nama Anggota</string>
+    <string name="form_5_tam">Tambahkan</string>
+    <string name="diskon_1_nam">Nama Diskon</string>
+    <string name="diskon_2_tip">Tipe Diskon</string>
+    <string name="diskon_3_bes">Besar Diskon</string>
+
+
+    <string name="admin_1_adm">Admin</string>
+    <string name="admin_2_das">Dashboard</string>
+    <string name="admin_3_mep">Menu Pembersih</string>
+    <string name="admin_4_med">Menu Diskon</string>
+
+    <!--    Menu    -->
+    <string name="menu_1">Beranda</string>
+    <string name="menu_2">Pembayaran</string>
+    <string name="menu_3">Profile</string>
+    <!--  Home Context  -->
+    <string name="home_1_hel">Hello</string>
+    <string name="home_2_car">Cari</string>
+    <string name="home_3_apa">Apa yang perlu dibersihkan?</string>
+    <string name="home_4_rum">Rumah</string>
+    <string name="home_5_sek">Sekolah</string>
+    <string name="home_6_tam">Taman</string>
+    <string name="home_7_tok">Toko</string>
+    <string name="home_8_apt">Apartemen</string>
+    <string name="home_9_edu">Edukasi Kebersihan</string>
+    <string name="home_10_pro">Promo</string>
+    <string name="home_11_rew">Reward Koin BeClean</string>
+
+    <!-- Kategori Context   -->
+    <string name="cat_1_kat">Kategori Pembersihan</string>
+    <string name="cat_2_bag">Bagian mana yang perlu kami bersihkan?</string>
+    <string name="cat_3_edu">Edukasi Kebersihan</string>
+    <string name="cat_4_mar">Mari belajar bersama BeClean</string>
+    <string-array name="cat_rumah">
+        <item>Dapur</item>
+        <item>Kamar Mandi</item>
+        <item>Kamar Tidur</item>
+        <item>Sofa</item>
+        <item>Jendela</item>
+        <item>Langit-langit</item>
+        <item>Ruang Kerja</item>
+        <item>Ruang Tamu</item>
+    </string-array>
+    <string-array name="cat_sekolah">
+        <item>Toilet</item>
+        <item>Ruang Kelas</item>
+        <item>Perpustakaan</item>
+        <item>Kebun Sekolah</item>
+        <item>Alat Elektronik</item>
+        <item>Ruang Guru</item>
+        <item>Musholla</item>
+        <item>Laboratorium</item>
+    </string-array>
+    <string-array name="cat_taman">
+        <item>Lantai Taman</item>
+        <item>Bunga</item>
+        <item>Penyiraman Bunga</item>
+        <item>Rumput Liar</item>
+        <item>Perawatan Tanaman</item>
+        <item>Kolam Ikan</item>
+        <item>Desain Taman</item>
+        <item>Vertical Garden</item>
+    </string-array>
+    <string-array name="cat_toko">
+        <item>Jendela</item>
+        <item>Lantai</item>
+        <item>Meja Kasir</item>
+        <item>Penataan Barang</item>
+        <item>Toilet Umum</item>
+        <item>Rak Barang</item>
+        <item>Langit-Langit</item>
+        <item>Tempat Parkir</item>
+    </string-array>
+    <string-array name="cat_apartemen">
+        <item>Ruang Tamu</item>
+        <item>Kamar Tidur</item>
+        <item>Toilet</item>
+        <item>Dapur</item>
+        <item>Alat Elektronik</item>
+        <item>Jendela</item>
+        <item>Langit-Langit</item>
+        <item>Ruang Kerja</item>
+    </string-array>
+
+    <!--  Tim   -->
+    <string name="tim_1_sil">Silahkan memilih tim pembersih favorit Anda</string>
+    <string name="tim_2_car">Cari</string>
+    <string name="tim_3_ora">Orang</string>
+    <string name="tim_4_ord">ORDER</string>
+    <string name="tim_5_nil">Nilai</string>
+    <string name="tim_6_lih">Lihat Semua</string>
+
+    <!--  Pembayaran  -->
+    <string name="pembayaran_1_title">Pembayaran</string>
+    <string name="pembayaran_2_pem">Pembersihan</string>
+    <string name="pembayaran_3_ole">Oleh :</string>
+    <string name="pembayaran_4_ang">Anggota Tim</string>
+    <string name="pembayaran_5_len">Lengkap dengan perlatan Tim</string>
+    <string name="pembayaran_6_gun">Gunakan Kode Promo</string>
+    <string name="pembayaran_7_pro">Promo</string>
+    <string name="pembayaran_8_tuk">Tukarkan Koin</string>
+    <string name="pembayaran_9_rup">Rp</string>
+    <string name="pembayaran_10_lok">Lokasi Pemesanan</string>
+    <string name="pembayaran_11_gun"><u>Gunakan Alamat Lain</u></string>
+    <string name="pembayaran_12_det">Detil Pemesanan</string>
+    <string name="pembayaran_13_dur">Durasi Pembersihan</string>
+    <string name="pembayaran_14_jad">Jadwal Pembersihan</string>
+    <string name="pembayaran_15_met">Metode Pembayaran</string>
+    <string name="pembayaran_16_pil">Pilih</string>
+    <string name="pembayaran_17_kan">Kantor BeClean</string>
+    <string name="pembayaran_18_cab">A.P Pettarani Makassar</string>
+    <string name="pembayaran_19_jar">Jarak</string>
+    <string name="pembayaran_20_dur">Durasi</string>
+    <string name="pembayaran_21_rin">Rincian Harga</string>
+    <string name="pembayaran_22_har">Harga Layanan</string>
+    <string name="pembayaran_23_bia">Biaya Transportasi</string>
+    <string name="pembayaran_24_bla">Biaya Lain-lain</string>
+    <string name="pembayaran_25_tot">Total Pembayaran</string>
+    <string name="pembayaran_26_den">Dengan memesan, saya menyetujui</string>
+    <string name="pembayaran_27_sya"><u>Syarat dan Ketentuan</u></string>
+
+    <!--  Paid  -->
+    <string name="paid_1_ban">Bantu kami membuat kebersihan BeClean-mu lebih baik
+dengan menilai pekerjaan kami</string>
+    <string name="paid_2_pai">PAID</string>
+    <string name="paid_3_tar">Tarif Total</string>
+    <string name="paid_4_met">Metode Pembayaran</string>
+    <string name="paid_5_poi">Poin</string>
+    <string name="paid_6_ter">"Terima kasih atas kerjasama anda!
+Semoga anda puas atas hasil pekerjaan kami."</string>
+    <string name="paid_7_ped">Peduli Kebersihan Anda</string>
+
+    <!--  BottomNav  -->
+    <string name="beranda">Beranda</string>
+    <string name="Pembayaran">Pembayaran</string>
+    <string name="Profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
