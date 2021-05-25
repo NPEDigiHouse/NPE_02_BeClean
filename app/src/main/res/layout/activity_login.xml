@@ -45,7 +45,7 @@
             android:layout_marginTop="40dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_email"
+                android:id="@+id/et_email_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_2_exm"
@@ -64,7 +64,7 @@
             android:layout_marginTop="20dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_password"
+                android:id="@+id/et_password_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/login_3_pas"
@@ -75,8 +75,9 @@
                 android:fontFamily="@font/sogoe_ui"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:id="@+id/btn_masuk"
+            android:id="@+id/btn_masuk_login"
             android:minHeight="0dp"
             android:layout_width="180dp"
             android:layout_marginTop="20sp"
@@ -116,7 +117,7 @@
                 android:layout_marginRight="20sp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/bg_btn_circle_white"
+                android:background="@drawable/bg_btn_circle_green"
                 android:elevation="1dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_baseline_facebook_24" />
@@ -127,7 +128,7 @@
                 android:layout_marginRight="20sp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/bg_btn_circle_white"
+                android:background="@drawable/bg_btn_circle_green"
                 android:elevation="1dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_twitter"
@@ -139,7 +140,7 @@
                 android:layout_height="30dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/bg_btn_circle_white"
+                android:background="@drawable/bg_btn_circle_green"
                 android:elevation="1dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_google_plus"
@@ -158,6 +159,7 @@
                 android:fontFamily="@font/sogoe_ui"
                 android:text="@string/login_6_blm"/>
             <TextView
+                android:id="@+id/tv_daftar_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_7_dft"
