@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageButton
-            android:id="@+id/ib_back"
+            android:id="@+id/ib_back_edukasi"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="15dp"
@@ -30,8 +30,8 @@
             android:textSize="23sp"
             android:fontFamily="@font/sogoe_ui"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="@id/ib_back"
-            app:layout_constraintStart_toEndOf="@id/ib_back"
+            app:layout_constraintTop_toTopOf="@id/ib_back_edukasi"
+            app:layout_constraintStart_toEndOf="@id/ib_back_edukasi"
             android:layout_marginLeft="20dp"/>
         <TextView
             android:id="@+id/tv_mari"
@@ -43,15 +43,15 @@
             android:fontFamily="@font/sogoe_ui"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/tv_edu_title"
-            app:layout_constraintStart_toEndOf="@id/ib_back"
+            app:layout_constraintStart_toEndOf="@id/ib_back_edukasi"
             android:layout_marginLeft="20dp"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_rumah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/ib_back"
+            app:layout_constraintTop_toTopOf="@id/ib_back_edukasi"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/ib_back"
+            app:layout_constraintBottom_toBottomOf="@id/ib_back_edukasi"
             app:cardElevation="8dp"
             app:cardCornerRadius="8dp"
             android:layout_marginRight="10dp"
@@ -80,19 +80,17 @@
                     android:text="@string/home_9_edu"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <ListView
-            android:id="@+id/list"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_edukasi"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_centerHorizontal="true"
-            app:layout_constraintTop_toBottomOf="@id/tv_mari"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:layout_marginHorizontal="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_centerVertical="true"
-            tools:listitem="@layout/item_educate"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="15dp"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mari"
+            tools:listitem="@layout/item_educate"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

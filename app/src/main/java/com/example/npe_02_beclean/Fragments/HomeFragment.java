@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.npe_02_beclean.Activities.CategoryActivity;
+import com.example.npe_02_beclean.Activities.EdukasiActivity;
 import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 import com.google.firebase.database.DataSnapshot;
@@ -33,7 +34,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     // widgets
     private CircleImageView civPhotoProfile;
     private TextView tvName, tvMoney;
-    private CardView cvRumah, cvSekolah, cvTaman, cvToko, cvApartemen;
+    private CardView cvRumah, cvSekolah, cvTaman, cvToko, cvApartemen, cvEdukasi;
 
 
     public static HomeFragment newInstance() {
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         cvTaman.setOnClickListener(this);
         cvToko.setOnClickListener(this);
         cvApartemen.setOnClickListener(this);
+        cvEdukasi.setOnClickListener(this);
 
         return view;
     }
@@ -91,6 +93,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Apartemen");
                 goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_apartment_black_18dp);
                 break;
+            case R.id.cv_edukasi_home:
+                Intent goToEdukasi = new Intent(getActivity(), EdukasiActivity.class);
+                startActivity(goToEdukasi);
+                return;
         }
         startActivity(goToCategory);
     }
@@ -104,6 +110,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         cvTaman = view.findViewById(R.id.cv_taman_home);
         cvToko = view.findViewById(R.id.cv_toko_home);
         cvApartemen = view.findViewById(R.id.cv_apartemen_home);
+        cvEdukasi = view.findViewById(R.id.cv_edukasi_home);
     }
 
     private void setUserData() {
