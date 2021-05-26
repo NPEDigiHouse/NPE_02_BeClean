@@ -112,6 +112,38 @@ layanan dan kebijakan privasi</string>
         <item>Ruang Kerja</item>
     </string-array>
 
+    <!-- Edukasi -->
+    <string-array name="edu_title_list">
+        <item>Memiliki Tempat Sampah</item>
+        <item>Menyapu dan Mengepel Setiap Hari</item>
+        <item>Kembalikan Barang Pada Tempatnya</item>
+        <item>Mencuci Peralatan Masak</item>
+        <item>Membersihkan Perlatan Kebersihan</item>
+        <item>Merapikan Tempat Tidur</item>
+        <item>Menjaga Kualitas Udara</item>
+        <item>Melibatkan Angggota Keluarga</item>
+    </string-array>
+    <string-array name="edu_desc_list">
+        <item>Tidak ada salahnya kamu memiliki tempat sampah di dalam rumah. Namun, kamu harus cepat membuangnya agar tidak ada bakteri-bakteri yang tidak diinginkan tinggal di rumah kamu.</item>
+        <item>Mungkin untuk menyapu kamu bisa lebih dari sekali. Apalagi jika rumah kamu orang-orangnya sering keluar masuk.</item>
+        <item>Setelah kamu menggunakan satu barang misalnya gunting, kamu harus mengembalikannya ke tempatnya kembali.</item>
+        <item>Setelah kamu memasak makanan untuk sarapan, makan siang, atau makan malam, kamu harus langsung mencuci alat-alatnya agar cucian piring kamu tidak menumpuk.</item>
+        <item>Jangan dianggap sepele membersihkan sapu, kain pel, kain lap, dan lainnya, karena itu sangat mempengaruhi kebersihan rumah kamu.</item>
+        <item>Setelah kamu bangun tidur, agar terbiasa merapikan tempat tidur. Jadikan hal ini sebagai kebiasaan kamu.</item>
+        <item>Dengan adanya jendela akan melancarkan sirkulasi udara dan kualitas udara akan sejuk.</item>
+        <item>Biasakan kamu bisa melibatkan keluarga untuk membersihkan rumah. Jangan kamu terus yang melakukannya, apa gunanya saudaramu yang lain.</item>
+    </string-array>
+    <array name="edu_image_list">
+        <item>@drawable/ic_tempat_sampah</item>
+        <item>@drawable/ic_menyapu</item>
+        <item>@drawable/ic_kembalikan_barang</item>
+        <item>@drawable/ic_cuci_piring</item>
+        <item>@drawable/ic_membersihkan</item>
+        <item>@drawable/ic_tempat_tidur</item>
+        <item>@drawable/ic_air_conditioner</item>
+        <item>@drawable/ic_keluarga</item>
+    </array>
+
     <!--  Tim   -->
     <string name="tim_1_sil">Silahkan memilih tim pembersih favorit Anda</string>
     <string name="tim_2_car">Cari</string>
