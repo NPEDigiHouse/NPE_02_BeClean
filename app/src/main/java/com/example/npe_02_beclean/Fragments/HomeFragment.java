@@ -68,18 +68,28 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.cv_rumah_home:
                 goToCategory.putExtra(CategoryActivity.EXTRA_CATEGORY, "rumah");
+                goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Rumah");
+                goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_rumah);
                 break;
             case R.id.cv_sekolah_home:
                 goToCategory.putExtra(CategoryActivity.EXTRA_CATEGORY, "sekolah");
+                goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Sekolah");
+                goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_sekolah);
                 break;
             case R.id.cv_taman_home:
                 goToCategory.putExtra(CategoryActivity.EXTRA_CATEGORY, "taman");
+                goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Taman");
+                goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_taman);
                 break;
             case R.id.cv_toko_home:
                 goToCategory.putExtra(CategoryActivity.EXTRA_CATEGORY, "toko");
+                goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Toko");
+                goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_toko);
                 break;
             case R.id.cv_apartemen_home:
                 goToCategory.putExtra(CategoryActivity.EXTRA_CATEGORY, "apartemen");
+                goToCategory.putExtra(CategoryActivity.EXTRA_TITLE, "Apartemen");
+                goToCategory.putExtra(CategoryActivity.EXTRA_ICON, R.drawable.ic_apartment_black_18dp);
                 break;
         }
         startActivity(goToCategory);
