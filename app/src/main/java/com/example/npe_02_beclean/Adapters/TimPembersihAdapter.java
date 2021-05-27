@@ -18,6 +18,8 @@ import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
 import com.squareup.picasso.Picasso;
 
+import org.w3c.dom.Text;
+
 import java.lang.ref.WeakReference;
 import java.util.List;
 
@@ -91,19 +93,19 @@ public class TimPembersihAdapter extends RecyclerView.Adapter<TimPembersihAdapte
                     onItemClick.btnOrderClicked(getAbsoluteAdapterPosition());
                     break;
                 case R.id.ib_plus_item_cleaner_tim:
-                    onItemClick.btnPlusClicked(getAbsoluteAdapterPosition());
+                    onItemClick.btnPlusClicked(getAbsoluteAdapterPosition(), tvQuantity, tvCost);
                     break;
                 case R.id.ib_minus_item_cleaner_tim:
-                    onItemClick.btnMinusCLicked(getAbsoluteAdapterPosition());
+                    onItemClick.btnMinusClicked(getAbsoluteAdapterPosition(), tvQuantity, tvCost);
                     break;
             }
         }
     }
 
     public interface OnItemClick {
-        void btnPlusClicked(int position);
-        void btnMinusCLicked(int position);
         void btnOrderClicked(int position);
+        void btnPlusClicked(int position, TextView tvQuantity, TextView tvCost);
+        void btnMinusClicked(int position, TextView tvQuantity, TextView tvCost);
     }
 
 }
