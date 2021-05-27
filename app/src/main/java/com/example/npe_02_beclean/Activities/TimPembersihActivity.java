@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.npe_02_beclean.Adapters.TimPembersihAdapter;
@@ -84,17 +86,45 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
     }
 
     @Override
-    public void btnPlusClicked(int position) {
-        Toast.makeText(this, "Btn plus clicked on " + timPembersihList.get(position).getName(), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void btnMinusCLicked(int position) {
-        Toast.makeText(this, "Btn minus clicked on " + timPembersihList.get(position).getName(), Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void btnOrderClicked(int position) {
-        Toast.makeText(this, "Btn order clicked on " + timPembersihList.get(position).getName(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void btnPlusClicked(int position, TextView tvQuantity, TextView tvCost) {
+        // update quantity
+        int tempQuantity = Integer.parseInt(tvQuantity.getText().toString());
+        int totalMember = timPembersihList.get(position).getTotalMember();
+        String timName = timPembersihList.get(position).getName();
+        if (tempQuantity + 1 > totalMember) {
+            Toast.makeText(
+                    this,
+                    String.format("Tim %s hanya memiliki %d anggota.", timName, totalMember),
+                    Toast.LENGTH_SHORT
+            ).show();
+        } else {
+            tvQuantity.setText(String.valueOf(++tempQuantity));
+        }
+
+        // update total cost
+        int cost = timPembersihList.get(position).getCost();
+        int tempTotal = tempQuantity * cost;
+        tvCost.setText(String.valueOf(tempTotal));
+    }
+
+    @Override
+    public void btnMinusClicked(int position, TextView tvQuantity, TextView tvCost) {
+        // update quantity
+        int tempQuantity = Integer.parseInt(tvQuantity.getText().toString());
+        if (tempQuantity - 1 < 1) {
+            Toast.makeText(this, "Minimal kamu harus memesan 1 pembersih.", Toast.LENGTH_SHORT).show();
+        } else {
+            tvQuantity.setText(String.valueOf(--tempQuantity));
+        }
+
+        // update total cost
+        int cost = timPembersihList.get(position).getCost();
+        int tempTotal = tempQuantity * cost;
+        tvCost.setText(String.valueOf(tempTotal));
     }
 }
