@@ -13,7 +13,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.NPE_02_BeClean">
-        <activity android:name=".Activities.MapActivity"></activity>
+        <activity android:name=".Activities.PembayaranKosongActivity"></activity>
+        <activity android:name=".Activities.MapActivity" />
         <activity android:name=".Activities.EditProfileActivity" />
         <activity android:name=".Activities.EdukasiActivity" />
         <activity android:name=".Activities.CategoryActivity" />

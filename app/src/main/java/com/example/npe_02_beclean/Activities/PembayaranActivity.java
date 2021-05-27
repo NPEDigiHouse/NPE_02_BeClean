@@ -93,36 +93,23 @@ public class PembayaranActivity extends AppCompatActivity {
                 double lat=LocationGps.getLatitude();
                 double longi=LocationGps.getLongitude();
                 myLocation = Point.fromLngLat(longi,lat);
-//                latitude=String.valueOf(lat);
-//                longitude=String.valueOf(longi);
-//                System.out.println("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
             }
             else if (LocationNetwork !=null)
             {
                 double lat=LocationNetwork.getLatitude();
                 double longi=LocationNetwork.getLongitude();
                 myLocation = Point.fromLngLat(longi,lat);
-//                latitude=String.valueOf(lat);
-//                longitude=String.valueOf(longi);
-//
-//                System.out.println("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
             }
             else if (LocationPassive !=null)
             {
                 double lat=LocationPassive.getLatitude();
                 double longi=LocationPassive.getLongitude();
                 myLocation = Point.fromLngLat(longi,lat);
-//                latitude=String.valueOf(lat);
-//                longitude=String.valueOf(longi);
-//
-//                System.out.println("Your Location:"+"\n"+"Latitude= "+latitude+"\n"+"Longitude= "+longitude);
             }
             else
             {
                 Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
             }
-
-            //Thats All Run Your App
         }
 
     }
