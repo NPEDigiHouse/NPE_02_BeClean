@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
+    app:layout_editor_absoluteX="0dp"
+    app:layout_editor_absoluteY="0dp"
+    android:fillViewport="true"
     tools:context=".Activities.EditProfileActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
+            android:layout_marginTop="20dp"
             >
             <ImageButton
                 android:id="@+id/ib_back_edit_profile"
@@ -62,16 +69,16 @@
                 style="@style/ShadowText"
                 />
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 >
                 <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/civ_photo_profile_edit_profile"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
                     app:civ_border_color="@color/blue_primary"
                     app:civ_border_width="1dp"
                     android:src="@drawable/ic_baseline_account_circle_24"
@@ -82,8 +89,8 @@
 
                     />
                 <ImageButton
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:padding="2dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_baseline_photo_camera_24"
@@ -98,6 +105,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tf_nama"
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/daftar_2_nma"
@@ -113,7 +121,6 @@
                     android:fontFamily="@font/sogoe_ui"
                     android:background="@color/trans"
                     android:inputType="text"
-                    android:paddingVertical="5dp"
                     android:textSize="15dp" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -133,7 +140,6 @@
                     android:fontFamily="@font/sogoe_ui"
                     android:background="@color/trans"
                     android:inputType="text"
-                    android:paddingVertical="5dp"
                     android:textSize="15dp" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -153,7 +159,6 @@
                     android:fontFamily="@font/sogoe_ui"
                     android:background="@color/trans"
                     android:inputType="text"
-                    android:paddingVertical="5dp"
                     android:textSize="15dp" />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -174,7 +179,6 @@
                     android:fontFamily="@font/sogoe_ui"
                     android:background="@color/trans"
                     android:inputType="text"
-                    android:paddingVertical="5dp"
                     android:textSize="15dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -200,3 +204,4 @@
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
