@@ -27,18 +27,6 @@ public class KategoriPembersihanAdapter extends RecyclerView.Adapter<KategoriPem
         this.onItemClick = onItemClick;
     }
 
-    public KategoriPembersihanAdapter() {
-        // empty constructor
-    }
-
-    public void setKategoriPembersihanList(List<KategoriPembersihan> kategoriPembersihanList) {
-        this.kategoriPembersihanList = kategoriPembersihanList;
-    }
-
-    public void setOnItemClick(OnItemClick onItemClick) {
-        this.onItemClick = onItemClick;
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
