@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -98,11 +99,15 @@ public class CategoryActivity extends AppCompatActivity implements KategoriPembe
                 Toast.makeText(CategoryActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        // set category icon
+        ivIconCategory.setImageResource(getIntent().getIntExtra(EXTRA_ICON, -1));
+        tvTitleCategory.setText(getIntent().getStringExtra(EXTRA_TITLE));
     }
 
 
     private void setKategoriPembersihanList(String category) {
-        // set user data
+        // get pembersihan reference
         DatabaseReference pembersihanRef = FirebaseDatabase.getInstance().getReference()
                 .child("pembersihan")
                 .child(category);
@@ -111,6 +116,7 @@ public class CategoryActivity extends AppCompatActivity implements KategoriPembe
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data : snapshot.getChildren()) {
                     Log.d("CATEGORY", data.getKey());
+                    // update the adapter's list
                     KategoriPembersihan kategoriPembersihan = new KategoriPembersihan();
                     kategoriPembersihan.setTitle(data.child("title").getValue().toString());
                     kategoriPembersihan.setUrlImage(data.child("url_img").getValue().toString());
@@ -125,14 +131,12 @@ public class CategoryActivity extends AppCompatActivity implements KategoriPembe
             }
         });
 
-        // set category icon
-        ivIconCategory.setImageResource(getIntent().getIntExtra(EXTRA_ICON, -1));
-        tvTitleCategory.setText(getIntent().getStringExtra(EXTRA_TITLE));
-
     }
 
     @Override
     public void onClick(int position) {
-        Toast.makeText(this, "You clicked " + kategoriPembersihanList.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+        // move to TimPembersihActivity
+        Intent goToTimPembersih = new Intent(this, TimPembersihActivity.class);
+        startActivity(goToTimPembersih);
     }
 }
