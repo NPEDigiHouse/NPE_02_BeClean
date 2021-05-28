@@ -92,6 +92,27 @@ public class PembersihActivity extends AppCompatActivity implements AdminPembers
 
     @Override
     public void btnDeleteClicked(int position) {
-        Toast.makeText(this, adminPembersihList.get(position).getName() + " clicked", Toast.LENGTH_SHORT).show();
+        // get tim reference
+        DatabaseReference teamsRef = FirebaseDatabase.getInstance().getReference()
+                .child("teams");
+        teamsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int pos = 0;
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    if (pos == position) {
+                        // delete value
+                        teamsRef.child(data.getKey()).removeValue();
+                    }
+                    pos++;
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PembersihActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        startActivity(new Intent(PembersihActivity.this, PembersihActivity.class));
+        finish();
     }
 }
