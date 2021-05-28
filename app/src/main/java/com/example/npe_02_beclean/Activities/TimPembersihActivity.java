@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.npe_02_beclean.Adapters.TimPembersihAdapter;
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.Models.KategoriPembersihan;
 import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
@@ -109,7 +110,7 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
         // update total cost
         int cost = timPembersihList.get(position).getCost();
         int tempTotal = tempQuantity * cost;
-        tvCost.setText(String.valueOf(tempTotal));
+        tvCost.setText(Util.convertToRupiah(String.valueOf(tempTotal)));
     }
 
     @Override
@@ -125,6 +126,6 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
         // update total cost
         int cost = timPembersihList.get(position).getCost();
         int tempTotal = tempQuantity * cost;
-        tvCost.setText(String.valueOf(tempTotal));
+        tvCost.setText(Util.convertToRupiah(String.valueOf(tempTotal)));
     }
 }

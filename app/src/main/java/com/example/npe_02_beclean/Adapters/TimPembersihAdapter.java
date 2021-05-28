@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
 import com.squareup.picasso.Picasso;
@@ -48,7 +49,7 @@ public class TimPembersihAdapter extends RecyclerView.Adapter<TimPembersihAdapte
                 .fit()
                 .into(holder.ivImage);
         holder.tvName.setText(timPembersihanList.get(position).getName());
-        holder.tvCost.setText(String.valueOf(timPembersihanList.get(position).getCost()));
+        holder.tvCost.setText(Util.convertToRupiah(String.valueOf(timPembersihanList.get(position).getCost())));
     }
 
     @Override
