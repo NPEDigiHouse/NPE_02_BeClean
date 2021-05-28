@@ -87,4 +87,24 @@
                 android:textSize="15sp"
                 app:backgroundTint="@null"/>
         </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_back_main_admin"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_btn_rect_blue_admin"
+        android:elevation="1dp"
+        android:fontFamily="@font/sogoe_ui"
+        android:paddingVertical="0dp"
+        android:text="Kembali ke Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_register" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
