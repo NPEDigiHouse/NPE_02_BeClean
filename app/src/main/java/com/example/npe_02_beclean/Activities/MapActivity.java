@@ -3,6 +3,7 @@ package com.example.npe_02_beclean.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.npe_02_beclean.Helpers.Util;
+import com.example.npe_02_beclean.Models.Pembayaran;
+import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.firebase.database.DataSnapshot;
@@ -61,27 +64,51 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, Callback<DirectionsResponse> {
 
-    private MapView mapView;
-    private MapboxMap mapboxMap;
-    private String cityNameOriginal, stateNameOriginal, countryNameOriginal;
-    private String cityNameDestination, stateNameDestination;
-    Point origin, destination;
-    private MapboxDirections client;
+    // extras
+    public static final String EXTRA_TEAM_NAME = "extra_team_name";
+    public static final String EXTRA_QUANTITY = "extra_quantity";
+    public static final String EXTRA_COST = "extra_cost";
+
+    // maps final string
     private static final String ROUTE_LAYER_ID = "route-layer-id";
     private static final String ROUTE_SOURCE_ID = "route-source-id";
     private static final String ICON_LAYER_ID = "icon-layer-id";
     private static final String ICON_SOURCE_ID = "icon-source-id";
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
-    Bundle b;
+
+    // widgets
+    private MapView mapView;
+    private MapboxMap mapboxMap;
+    private String cityNameOriginal, stateNameOriginal, countryNameOriginal;
+    private String cityNameDestination, stateNameDestination;
+    private MapboxDirections client;
     private TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
     private ImageButton btnBack;
     private Button btnConfirm;
+
+    // attributes
+    private String category, teamName, members;
     private double distance = 0.0; // km
     private double duration = 0.0; // minute
+    private int costService;
+    Point origin, destination;
+    Bundle b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // get pembayaran objects from prev intent
+        category = getIntent().getStringExtra(TimPembersihActivity.EXTRA_CATEGORY);
+        teamName = getIntent().getStringExtra(EXTRA_TEAM_NAME);
+        members = getIntent().getStringExtra(EXTRA_QUANTITY);
+        costService = getIntent().getIntExtra(EXTRA_COST, 0);
+
+        // clear intent extras
+        getIntent().removeExtra(TimPembersihActivity.EXTRA_CATEGORY);
+        getIntent().removeExtra(EXTRA_TEAM_NAME);
+        getIntent().removeExtra(EXTRA_QUANTITY);
+        getIntent().removeExtra(EXTRA_COST);
+
         // map attributes
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_map);
@@ -118,7 +145,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MapActivity.this, String.format("%.2f km %.2f min", distance, duration), Toast.LENGTH_SHORT).show();
+                btnConfirmClicked();
             }
         });
 
@@ -135,8 +162,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onStyleLoaded(@NonNull Style style) {
                 origin = Point.fromLngLat(119.4361434,-5.1456845);
-                if(b!=null)
-                {
+                if(b!=null){
                     destination = (Point) b.get("position");
                 }else{
                     destination = Point.fromLngLat(119.503707,-5.1258033);
@@ -159,6 +185,30 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 getRoute(mapboxMap, origin, destination);
             }
         });
+    }
+
+    private void btnConfirmClicked() {
+        // create Pembayaran object
+        String address = tvAddressUser.getText().toString();
+        int costTransport = (int) distance * 2000;
+        int costTotal = costService + costTransport;
+
+        Pembayaran pembayaran = new Pembayaran(
+          category,
+          teamName,
+          address,
+          members,
+          distance,
+          duration,
+          costService,
+          costTransport,
+          costTotal
+        );
+
+        // move to pembayaran activity
+        Intent goToPembayaran = new Intent(this, PembayaranActivity.class);
+        goToPembayaran.putExtra(PembayaranActivity.EXTRA_PEMBAYARAN, pembayaran);
+        startActivity(goToPembayaran);
     }
 
     private void setUserData() {

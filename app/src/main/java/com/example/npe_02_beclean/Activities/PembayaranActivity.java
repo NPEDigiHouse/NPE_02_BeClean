@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.npe_02_beclean.Helpers.Util;
+import com.example.npe_02_beclean.Models.Pembayaran;
 import com.example.npe_02_beclean.R;
 import com.mapbox.geojson.Point;
 
@@ -29,6 +31,15 @@ import androidx.core.app.ActivityCompat;
 
 
 public class PembayaranActivity extends AppCompatActivity {
+
+    // extras
+    public static final String EXTRA_PEMBAYARAN = "extra_pembayaran";
+
+    // widgets
+    private TextView tvCategory, tvTeamName, tvMembers,
+            tvAddress, tvDistance, tvDuration,
+            tvCostService, tvCostTransport, tvCostTotal;
+
     //Maps Attribut
     TextView tvGoMaps;
     LocationManager locationManager;
@@ -43,13 +54,19 @@ public class PembayaranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran);
 
-        //Add permission
 
+        //Add permission
         ActivityCompat.requestPermissions(this,new String[]
                 {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
 
-        tvGoMaps=findViewById(R.id.tv_alamat);
+        // initialize widgets
+        initializeWidgets();
 
+        // set data to widgets
+        setDataToWidgets();
+
+        // maps
+        tvGoMaps=findViewById(R.id.tv_alamat);
         tvGoMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +90,32 @@ public class PembayaranActivity extends AppCompatActivity {
 
     }
 
+    private void initializeWidgets() {
+        tvCategory = findViewById(R.id.tv_categori_pembersihan_pembayaran);
+        tvTeamName = findViewById(R.id.tv_team_name_pembayaran);
+        tvMembers = findViewById(R.id.tv_members_pembayaran);
+        tvAddress = findViewById(R.id.tv_alamat_pembayaran);
+        tvDistance = findViewById(R.id.tv_distance_pembayaran);
+        tvDuration = findViewById(R.id.tv_duration_pembayaran);
+        tvCostService = findViewById(R.id.tv_harga_layanan_pembayaran);
+        tvCostTransport = findViewById(R.id.tv_biaya_transportasi_pembarayan);
+        tvCostTotal = findViewById(R.id.tv_total_cost_pembayaran);
+    }
+
+    private void setDataToWidgets() {
+        Pembayaran pembayaran = getIntent().getParcelableExtra(EXTRA_PEMBAYARAN);
+        tvCategory.setText(pembayaran.getCategory());
+        tvTeamName.setText(pembayaran.getTeamName());
+        tvMembers.setText(pembayaran.getMembers());
+        tvAddress.setText(pembayaran.getAddress());
+        tvDistance.setText(String.format("%.1f km", pembayaran.getDistance()));
+        tvDuration.setText(String.format("%.1f menit", pembayaran.getDuration()));
+        tvCostService.setText(Util.convertToRupiah(String.valueOf(pembayaran.getCostService())));
+        tvCostTransport.setText(Util.convertToRupiah(String.valueOf(pembayaran.getCostTransport())));
+        tvCostTotal.setText(Util.convertToRupiah(String.valueOf(pembayaran.getCostTotal())));
+    }
+
+    // open maps function -------------------------------------------------------------------------------------------------
     private void getLocation() {
         //Check Permissions again
         if (ActivityCompat.checkSelfPermission(PembayaranActivity.this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(PembayaranActivity.this,

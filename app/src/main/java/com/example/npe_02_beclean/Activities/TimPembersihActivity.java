@@ -30,13 +30,20 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class TimPembersihActivity extends AppCompatActivity implements TimPembersihAdapter.OnItemClick {
 
+    // extras
+    public static final String EXTRA_CATEGORY = "extra_category";
+
     // widgets
-    CircleImageView civPhotoProfile;
+    private CircleImageView civPhotoProfile;
+    private TextView tvQuantity, tvCost;
 
     // recyclerview attr
     private RecyclerView rvTimPembersih;
     private TimPembersihAdapter timPembersihAdapter;
     private List<TimPembersih> timPembersihList;
+
+    // attr
+    private int finalCost = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +98,19 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
     public void btnOrderClicked(int position) {
         // move to MapActivity
         Intent goToMap = new Intent(this, MapActivity.class);
+
+        // from prev intent
+        goToMap.putExtra(EXTRA_CATEGORY, getIntent().getStringExtra(EXTRA_CATEGORY));
+
+        // from this intent
+        goToMap.putExtra(MapActivity.EXTRA_TEAM_NAME, timPembersihList.get(position).getName());
+        if (tvCost == null && finalCost == 0) {
+            goToMap.putExtra(MapActivity.EXTRA_QUANTITY, "1");
+            goToMap.putExtra(MapActivity.EXTRA_COST, timPembersihList.get(position).getCost());
+        } else {
+            goToMap.putExtra(MapActivity.EXTRA_QUANTITY, tvQuantity.getText().toString());
+            goToMap.putExtra(MapActivity.EXTRA_COST, finalCost);
+        }
         startActivity(goToMap);
     }
 
@@ -114,6 +134,11 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
         int cost = timPembersihList.get(position).getCost();
         int tempTotal = tempQuantity * cost;
         tvCost.setText(Util.convertToRupiah(String.valueOf(tempTotal)));
+
+        // set TimPembersihActivty extra
+        this.tvQuantity = tvQuantity;
+        this.tvCost = tvCost;
+        finalCost = tempTotal;
     }
 
     @Override
@@ -130,5 +155,10 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
         int cost = timPembersihList.get(position).getCost();
         int tempTotal = tempQuantity * cost;
         tvCost.setText(Util.convertToRupiah(String.valueOf(tempTotal)));
+
+        // set TimPembersihActivty extra
+        this.tvQuantity = tvQuantity;
+        this.tvCost = tvCost;
+        finalCost = tempTotal;
     }
 }
