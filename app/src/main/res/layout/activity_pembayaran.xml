@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textButton"
+        app:layout_constraintBottom_toTopOf="@id/btn_lanjutkan_pembayaran"
 
         >
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -459,7 +459,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
     <Button
-        android:id="@+id/textButton"
+        android:id="@+id/btn_lanjutkan_pembayaran"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Lanjutkan Pembayaran"

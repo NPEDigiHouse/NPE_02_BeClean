@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.npe_02_beclean.Helpers.Util;
@@ -39,12 +40,16 @@ public class PembayaranActivity extends AppCompatActivity {
     private TextView tvCategory, tvTeamName, tvMembers,
             tvAddress, tvDistance, tvDuration,
             tvCostService, tvCostTransport, tvCostTotal;
+    private Button btnContinuePay;
+
+    private Pembayaran pembayaran;
 
     //Maps Attribut
     TextView tvGoMaps;
     LocationManager locationManager;
     String latitude,longitude;
     Point myLocation;
+
 
 
     private static  final int REQUEST_LOCATION=1;
@@ -66,7 +71,6 @@ public class PembayaranActivity extends AppCompatActivity {
         setDataToWidgets();
 
         // maps
-        tvGoMaps=findViewById(R.id.tv_alamat);
         tvGoMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +92,16 @@ public class PembayaranActivity extends AppCompatActivity {
             }
         });
 
+        // continue paying
+        btnContinuePay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToPaid = new Intent(PembayaranActivity.this, PaidActivity.class);
+                goToPaid.putExtra(PaidActivity.EXTRA_TOTAL_COST, pembayaran.getCostTotal()); // int
+                startActivity(goToPaid);
+            }
+        });
+
     }
 
     private void initializeWidgets() {
@@ -100,10 +114,12 @@ public class PembayaranActivity extends AppCompatActivity {
         tvCostService = findViewById(R.id.tv_harga_layanan_pembayaran);
         tvCostTransport = findViewById(R.id.tv_biaya_transportasi_pembarayan);
         tvCostTotal = findViewById(R.id.tv_total_cost_pembayaran);
+        tvGoMaps=findViewById(R.id.tv_alamat);
+        btnContinuePay = findViewById(R.id.btn_lanjutkan_pembayaran);
     }
 
     private void setDataToWidgets() {
-        Pembayaran pembayaran = getIntent().getParcelableExtra(EXTRA_PEMBAYARAN);
+        pembayaran = getIntent().getParcelableExtra(EXTRA_PEMBAYARAN);
         tvCategory.setText(pembayaran.getCategory());
         tvTeamName.setText(pembayaran.getTeamName());
         tvMembers.setText(pembayaran.getMembers());
