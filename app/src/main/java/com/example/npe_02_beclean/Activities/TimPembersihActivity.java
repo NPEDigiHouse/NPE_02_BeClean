@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -88,7 +89,9 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
 
     @Override
     public void btnOrderClicked(int position) {
-
+        // move to MapActivity
+        Intent goToMap = new Intent(this, MapActivity.class);
+        startActivity(goToMap);
     }
 
     @Override
