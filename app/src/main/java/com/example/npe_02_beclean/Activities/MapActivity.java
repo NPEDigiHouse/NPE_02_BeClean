@@ -76,7 +76,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
     private ImageButton btnBack;
     private Button btnConfirm;
-    private double distance = 0.0;
+    private double distance = 0.0; // km
+    private double duration = 0.0; // minute
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MapActivity.this, String.format("%.2f km", distance), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapActivity.this, String.format("%.2f km %.2f min", distance, duration), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -140,8 +141,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 }else{
                     destination = Point.fromLngLat(119.503707,-5.1258033);
                 }
-                // get distance
+
+                // get distance and duration order
                 distance = getDistance(-5.1456845, 119.4361434, destination.latitude(), destination.longitude());
+                duration = getDuration(distance);
 
                 setDataLocation();
                 initSource(style);
@@ -198,6 +201,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private double rad2deg(double rad) {
         return (rad * 180.0 / Math.PI);
+    }
+
+    private double getDuration(double distance) {
+        return distance / 40 * 60;
     }
 
     private void setDataLocation() {
