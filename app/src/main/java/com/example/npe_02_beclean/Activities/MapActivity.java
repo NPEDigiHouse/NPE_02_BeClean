@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +75,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     Bundle b;
     private TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
     private ImageButton btnBack;
+    private Button btnConfirm;
+    private double distance = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +113,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
+        btnConfirm = findViewById(R.id.btn_confirm_map);
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MapActivity.this, String.format("%.2f km", distance), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // set user data
         setUserData();
 
@@ -129,6 +140,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 }else{
                     destination = Point.fromLngLat(119.503707,-5.1258033);
                 }
+                // get distance
+                distance = getDistance(-5.1456845, 119.4361434, destination.latitude(), destination.longitude());
+
                 setDataLocation();
                 initSource(style);
                 initLayers(style);
@@ -163,6 +177,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
+    }
+
+    private double getDistance(double lat1, double lon1, double lat2, double lon2) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1))
+                * Math.sin(deg2rad(lat2))
+                + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2))
+                * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        return (dist * 1.60934);
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
     }
 
     private void setDataLocation() {
