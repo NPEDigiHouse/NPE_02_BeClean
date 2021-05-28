@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.npe_02_beclean.Admin.MainAdminActivity;
 import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -73,6 +74,14 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
+        // check if admin
+        if (email.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+            Intent goToMainAdmin = new Intent(this, MainAdminActivity.class);
+            startActivity(goToMainAdmin);
+            finish();
+            return;
+        }
+
         // find user id on database
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference()
                 .child("users");
@@ -96,8 +105,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 // validate password
                                 String tempPassword = snapshot.child("password").getValue().toString();
                                 if (tempPassword.equals(password)) {
-                                    // save user id to local (user's device)
+                                    // save user id to local (user's device) and set pembayaran to false
                                     Util.saveUserIdToLocal(LoginActivity.this, userId);
+                                    Util.savePembayaranToLocal(LoginActivity.this, false);
 
                                     // move to main activity
                                     Intent goToMain = new Intent(LoginActivity.this, MainActivity.class);

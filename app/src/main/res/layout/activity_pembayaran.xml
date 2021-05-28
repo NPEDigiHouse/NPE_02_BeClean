@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textButton"
+        app:layout_constraintBottom_toTopOf="@id/btn_lanjutkan_pembayaran"
 
         >
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,6 +66,7 @@
                     android:layout_marginRight="8dp"
                     >
                     <ImageView
+                        android:id="@+id/iv_tim_image_pembayaran"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -82,7 +83,7 @@
                     app:layout_constraintStart_toStartOf="@id/tv_lengkap"
                     />
                 <TextView
-                    android:id="@+id/tv_tipe_pem"
+                    android:id="@+id/tv_categori_pembersihan_pembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kamar Tidur"
@@ -103,7 +104,7 @@
                     app:layout_constraintStart_toStartOf="@id/tv_lengkap"
                     />
                 <TextView
-                    android:id="@+id/tv_tim_name"
+                    android:id="@+id/tv_team_name_pembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tim Cuan"
@@ -112,12 +113,12 @@
                     app:layout_constraintStart_toStartOf="@id/tv_lengkap"
                     />
                 <TextView
-                    android:id="@+id/tv_jumlah_anggota"
+                    android:id="@+id/tv_members_pembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8 Anggota Tim"
+                    android:text="8 orang"
                     android:textSize="11sp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_tim_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_team_name_pembayaran"
                     app:layout_constraintStart_toStartOf="@id/tv_lengkap"
                     />
                 <TextView
@@ -126,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="Lengkap dengan peralatan tim"
                     android:textSize="11sp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_jumlah_anggota"
+                    app:layout_constraintTop_toBottomOf="@id/tv_members_pembayaran"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="30dp"
                     />
@@ -245,6 +246,7 @@
                     android:textStyle="bold"
                     android:layout_marginRight="5dp"/>
                 <TextView
+                    android:id="@+id/tv_alamat_pembayaran"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Jl. Buldozer No. 17 Kel.Mangasa, Kec. Tamlate, Kota makassar"
@@ -256,105 +258,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="50dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_detail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/cl_info_lokasi"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:background="@drawable/bg_primary"
-                android:padding="7dp"
-                android:layout_marginTop="15dp">
-                <TextView
-                    android:id="@+id/tv_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_12_det"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-                <TextView
-                    android:id="@+id/tv_durasi"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_13_dur"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_detail"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-                <TextView
-                    android:id="@+id/tv_pilih1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="@string/pembayaran_16_pil"
-                    android:textSize="11sp"
-                    android:textColor="@color/blue_primary"
-                    android:textStyle="bold"
-                    android:layout_marginRight="15dp"
-                    app:layout_constraintTop_toTopOf="@id/tv_durasi"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_durasi"
-                    />
-                <TextView
-                    android:id="@+id/tv_jadwal"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_14_jad"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_durasi"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-                <TextView
-                    android:id="@+id/tv_pilih2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="@string/pembayaran_16_pil"
-                    android:textSize="11sp"
-                    android:textColor="@color/blue_primary"
-                    android:textStyle="bold"
-                    android:layout_marginRight="15dp"
-                    app:layout_constraintTop_toTopOf="@id/tv_jadwal"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_jadwal"
-                    />
-                <TextView
-                    android:id="@+id/tv_metode"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_15_met"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="10dp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_jadwal"
-                    app:layout_constraintStart_toStartOf="parent"
-                    />
-                <TextView
-                    android:id="@+id/tv_pilih3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:text="@string/pembayaran_16_pil"
-                    android:textSize="11sp"
-                    android:textColor="@color/blue_primary"
-                    android:textStyle="bold"
-                    android:layout_marginRight="15dp"
-                    app:layout_constraintTop_toTopOf="@id/tv_metode"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_metode"
-                    />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_kantor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/cl_detail"
+                app:layout_constraintTop_toBottomOf="@id/cl_info_lokasi"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:background="@drawable/bg_primary"
@@ -414,7 +323,7 @@
                         <Space android:layout_width="100dp"
                             android:layout_height="match_parent"/>
                         <TextView
-                            android:id="@+id/tv_jarak"
+                            android:id="@+id/tv_distance_pembayaran"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -436,7 +345,7 @@
                         <Space android:layout_width="100dp"
                             android:layout_height="match_parent"/>
                         <TextView
-                            android:id="@+id/tv_durasi_perjalanan"
+                            android:id="@+id/tv_duration_pembayaran"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -489,7 +398,7 @@
                         <Space android:layout_width="100dp"
                             android:layout_height="match_parent"/>
                         <TextView
-                            android:id="@+id/tv_harga_layanan"
+                            android:id="@+id/tv_harga_layanan_pembayaran"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -511,34 +420,12 @@
                         <Space android:layout_width="100dp"
                             android:layout_height="match_parent"/>
                         <TextView
-                            android:id="@+id/tv_biaya_transfortasi"
+                            android:id="@+id/tv_biaya_transportasi_pembarayan"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:text="Rp30.000"
-                            android:textSize="11sp"
-                            />
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <TextView
-                            android:layout_marginTop="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/pembayaran_24_bla"
-                            android:textSize="11sp"
-                            />
-                        <Space android:layout_width="100dp"
-                            android:layout_height="match_parent"/>
-                        <TextView
-                            android:id="@+id/tv_biaya_lain"
-                            android:layout_marginTop="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:text="Rp0"
                             android:textSize="11sp"
                             />
                     </TableRow>
@@ -558,7 +445,7 @@
                         <Space android:layout_width="100dp"
                             android:layout_height="match_parent"/>
                         <TextView
-                            android:id="@+id/tv_total_biaya"
+                            android:id="@+id/tv_total_cost_pembayaran"
                             android:layout_marginTop="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -569,40 +456,13 @@
                     </TableRow>
                 </TableLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:id="@+id/ll_syarat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/cl_rincian"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_26_den"
-                    android:textColor="@color/grey_primary"
-                    android:fontFamily="@font/sogoe_ui"
-                    android:textSize="11sp" />
-                <TextView
-                    android:id="@+id/tv_syarat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pembayaran_27_sya"
-                    android:textColor="@color/blue_primary"
-                    android:layout_marginLeft="5dp"
-                    android:fontFamily="@font/sogoe_ui"
-                    android:textSize="11sp" />
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
     <Button
-        android:id="@+id/textButton"
+        android:id="@+id/btn_lanjutkan_pembayaran"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Lanjutkan Pembayaran"
+        android:text="Confirm Pembayaran"
         android:textAllCaps="false"
         android:layout_marginHorizontal="35dp"
         android:layout_marginVertical="5dp"

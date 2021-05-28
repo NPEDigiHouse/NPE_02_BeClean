@@ -164,8 +164,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
-                        // save user id to local (user's device)
+                        // save user id to local (user's device) and pembayaran to false
                         Util.saveUserIdToLocal(RegisterActivity.this, userId);
+                        Util.savePembayaranToLocal(RegisterActivity.this, false);
+
 
                         // move to MainActivity
                         Intent goToMain = new Intent(RegisterActivity.this, MainActivity.class);
@@ -185,7 +187,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
             }
         });
-
     }
 
     private Integer generateRandomNumber() {

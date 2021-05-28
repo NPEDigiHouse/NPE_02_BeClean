@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.npe_02_beclean.Adapters.KategoriPembersihanAdapter;
 import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.Models.KategoriPembersihan;
+import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -137,6 +138,7 @@ public class CategoryActivity extends AppCompatActivity implements KategoriPembe
     public void onClick(int position) {
         // move to TimPembersihActivity
         Intent goToTimPembersih = new Intent(this, TimPembersihActivity.class);
+        goToTimPembersih.putExtra(TimPembersihActivity.EXTRA_CATEGORY, kategoriPembersihanList.get(position).getTitle());
         startActivity(goToTimPembersih);
     }
 }

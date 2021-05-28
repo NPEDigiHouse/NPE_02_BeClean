@@ -23,35 +23,7 @@ public class Util {
     // shared preferences attr
     private static final String SHARED_PREFERENCES = "shared_preferences";
     private static final String USER_ID_KEY = "user_id_key";
-
-    // list category adapter
-    public static List<KategoriPembersihan> categoryList;
-
-    public static void setKategoriPembersihanList(String category) {
-        List<KategoriPembersihan> tempList = new ArrayList<>();
-        DatabaseReference pembersihanRef = FirebaseDatabase.getInstance().getReference()
-                .child("pembersihan")
-                .child(category);
-        pembersihanRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Log.d("CATEGORY", data.getKey());
-                    KategoriPembersihan kategoriPembersihan = new KategoriPembersihan();
-                    kategoriPembersihan.setTitle(data.child("title").getValue().toString());
-                    kategoriPembersihan.setUrlImage(data.child("url_img").getValue().toString());
-                    tempList.add(kategoriPembersihan);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        categoryList = tempList;
-    }
-
+    private static final String PEMBAYARAN_KEY = "pembayaran_key";
 
     public static void saveUserIdToLocal(Activity activity, String userId) {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
@@ -64,6 +36,19 @@ public class Util {
     public static String getUserIdLocal(Activity activity) {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
         return sharedPreferences.getString(USER_ID_KEY, "");
+    }
+
+    public static void savePembayaranToLocal(Activity activity, boolean haveTransaction) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(PEMBAYARAN_KEY, haveTransaction);
+        editor.apply();
+    }
+
+    public static boolean getPembayaranLocal(Activity activity) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFERENCES, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(PEMBAYARAN_KEY, false);
     }
 
     public static String convertToRupiah(String money) {
