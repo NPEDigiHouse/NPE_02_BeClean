@@ -12,8 +12,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mapbox.api.directions.v5.DirectionsCriteria;
 import com.mapbox.api.directions.v5.MapboxDirections;
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
@@ -37,6 +43,7 @@ import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
 import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
 import com.mapbox.mapboxsdk.utils.BitmapUtils;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,6 +58,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, Callback<DirectionsResponse> {
+
     private MapView mapView;
     private MapboxMap mapboxMap;
     private String cityNameOriginal, stateNameOriginal, countryNameOriginal;
@@ -63,17 +71,23 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final String ICON_SOURCE_ID = "icon-source-id";
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
     Bundle b;
-    TextView tvOriginalLocation, tvDestinationLocation, tvOffice;
+    TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // map attributes
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_map);
+
         mapView = findViewById(R.id.mv_map);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
+        Intent i= getIntent();
+        b = i.getExtras();
+
+        // initialize widgets
         View bs = findViewById(R.id.ll_data_map);
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bs);
         bottomSheetBehavior.setPeekHeight(60);
@@ -81,10 +95,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
 
         tvOriginalLocation = findViewById(R.id.tv_original_location);
+        tvOriginalLocation.setText("Jl. AP. Pettarani, Makassar");
+
         tvDestinationLocation = findViewById(R.id.tv_destination_location);
-        tvOffice = findViewById(R.id.tv_cleaner_office);
-        Intent i= getIntent();
-        b = i.getExtras();
+        tvAddressUser = findViewById(R.id.tv_address_user);
+        tvNameUser = findViewById(R.id.tv_name_user);
+
+        // set user data
+        setUserData();
 
     }
 
@@ -95,7 +113,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
             @Override
             public void onStyleLoaded(@NonNull Style style) {
-                origin = Point.fromLngLat(119.4299981,-5.184244);
+                origin = Point.fromLngLat(119.4361434,-5.1456845);
                 if(b!=null)
                 {
                     destination = (Point) b.get("position");
@@ -117,6 +135,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    private void setUserData() {
+        // get user data from firebase
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(Util.getUserIdLocal(this));
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // set data to widgets
+                tvNameUser.setText(snapshot.child("name").getValue().toString());
+                tvAddressUser.setText(snapshot.child("address").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MapActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
     private void setDataLocation() {
         Geocoder geocoder = new Geocoder(MapActivity.this, Locale.getDefault());
         List<Address> originalAddress = null;
@@ -133,8 +172,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         cityNameDestination = destinationAddress.get(0).getAddressLine(0);
 //        stateNameDestination = destinationAddress.get(0).getAddressLine(1);
 
-        tvOriginalLocation.setText(cityNameOriginal);
-        tvOffice.setText(cityNameOriginal);
+        tvAddressUser.setText(cityNameOriginal);
         tvDestinationLocation.setText(cityNameDestination);
     }
 

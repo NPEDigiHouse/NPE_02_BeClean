@@ -74,15 +74,15 @@
                     android:id="@+id/tv_name_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nissa"
+                    tools:text="Nissa"
                     android:textSize="15dp"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/tv_cleaner_office"
+                    android:id="@+id/tv_address_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxWidth="180dp"
-                    android:text="Jln. Buldozer no.17 Kel. Mangasa Kec. Tamalate Makassar"
+                    tools:text="Jln. Buldozer no.17 Kel. Mangasa Kec. Tamalate Makassar"
                     android:textSize="9sp"/>
 
             </LinearLayout>
@@ -126,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:paddingHorizontal="9dp"
                     android:layout_height="wrap_content"
-                    android:text="Jl. Buldozer"
+                    tools:text="Jl. Buldozer"
                     android:paddingVertical="4dp"
                     android:textSize="12dp"
                     android:background="@drawable/bg_text"
