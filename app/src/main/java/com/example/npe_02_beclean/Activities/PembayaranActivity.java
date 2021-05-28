@@ -198,7 +198,8 @@ public class PembayaranActivity extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, TimPembersihActivity.class);
         startActivity(i);
+        finish();
     }
 }

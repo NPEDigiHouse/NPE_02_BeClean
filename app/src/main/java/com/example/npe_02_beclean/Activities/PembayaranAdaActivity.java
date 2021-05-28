@@ -3,6 +3,8 @@ package com.example.npe_02_beclean.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.npe_02_beclean.R;
@@ -12,6 +14,7 @@ public class PembayaranAdaActivity extends AppCompatActivity {
     private TextView tvCategory, tvTeamName, tvMembers,
             tvAddress, tvDistance, tvDuration,
             tvCostService, tvCostTransport, tvCostTotal;
+    private ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,14 @@ public class PembayaranAdaActivity extends AppCompatActivity {
         initializeWidgets();
 
         // set data to widgets
+
+        // if button clicked
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
@@ -35,5 +46,6 @@ public class PembayaranAdaActivity extends AppCompatActivity {
         tvCostService = findViewById(R.id.tv_harga_layanan_pembayaran_ada);
         tvCostTransport = findViewById(R.id.tv_biaya_transportasi_pembarayan_ada);
         tvCostTotal = findViewById(R.id.tv_total_cost_pembayaran_ada);
+        btnBack = findViewById(R.id.ib_back_ada);
     }
 }
