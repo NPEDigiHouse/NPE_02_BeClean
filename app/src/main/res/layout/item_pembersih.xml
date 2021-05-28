@@ -7,7 +7,7 @@
     android:elevation="1dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_pembersih"
+        android:id="@+id/cv_image_item_pembersih"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
@@ -17,14 +17,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:elevation="4dp">
         <ImageView
-            android:id="@+id/iv_pembersih"
+            android:id="@+id/iv_image_item_pembersih"
             android:layout_height="60dp"
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
             />
     </androidx.cardview.widget.CardView>
     <TextView
-        android:id="@+id/tv_nama_pembersih"
+        android:id="@+id/tv_team_name_item_pembersih"
         android:layout_marginTop="10dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,12 +34,12 @@
         android:fontFamily="@font/sogoe_ui"
         android:layout_marginLeft="10dp"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@id/cv_pembersih"
+        app:layout_constraintStart_toEndOf="@id/cv_image_item_pembersih"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/ib_trash"
+        app:layout_constraintEnd_toStartOf="@id/ib_delete_item_pembersih"
         />
     <TextView
-        android:id="@+id/tv_jumlah_pembersih"
+        android:id="@+id/tv_total_member_item_pembersih"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="9"
@@ -47,8 +47,8 @@
         android:fontFamily="@font/sogoe_ui"
         android:layout_marginLeft="10dp"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/cv_pembersih"
-        app:layout_constraintTop_toBottomOf="@id/tv_nama_pembersih"
+        app:layout_constraintStart_toEndOf="@id/cv_image_item_pembersih"
+        app:layout_constraintTop_toBottomOf="@id/tv_team_name_item_pembersih"
         />
     <TextView
         android:id="@+id/tv_orang_pembersih"
@@ -59,11 +59,11 @@
         android:fontFamily="@font/sogoe_ui"
         android:layout_marginLeft="5dp"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/tv_jumlah_pembersih"
-        app:layout_constraintTop_toBottomOf="@id/tv_nama_pembersih"
+        app:layout_constraintStart_toEndOf="@id/tv_total_member_item_pembersih"
+        app:layout_constraintTop_toBottomOf="@id/tv_team_name_item_pembersih"
         />
     <ImageButton
-        android:id="@+id/ib_trash"
+        android:id="@+id/ib_delete_item_pembersih"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:padding="6dp"
@@ -80,7 +80,7 @@
         app:layout_goneMarginRight="20dp"
         />
     <ImageButton
-        android:id="@+id/ib_edit"
+        android:id="@+id/ib_edit_item_pembersih"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:padding="6dp"
@@ -91,7 +91,7 @@
         android:elevation="1dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_icon_awesome_edit"
-        app:layout_constraintEnd_toStartOf="@id/ib_trash"
+        app:layout_constraintEnd_toStartOf="@id/ib_delete_item_pembersih"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_goneMarginRight="20dp"
