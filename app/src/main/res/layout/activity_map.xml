@@ -5,29 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.RegisterActivity">
-    <ImageButton
-        android:id="@+id/ib_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/ic_icon_ionic_ios_arrow_dropleft_circle"/>
-    <ImageButton
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/ib_next"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        app:layout_anchorGravity="top|right"
-        app:layout_anchor="@id/mv_map"
-        android:background="@drawable/ic_nexy"/>
+
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mv_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-
         />
+
+    <ImageButton
+        android:id="@+id/ib_back_map"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/ic_icon_ionic_ios_arrow_dropleft_circle"/>
+
     <LinearLayout
         android:id="@+id/ll_data_map"
         android:layout_width="match_parent"
@@ -133,6 +126,14 @@
                     />
             </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_confirm_map"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:text="Confirm"
+            />
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

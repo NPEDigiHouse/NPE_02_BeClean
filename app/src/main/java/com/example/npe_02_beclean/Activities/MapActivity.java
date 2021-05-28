@@ -9,6 +9,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,7 +72,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final String ICON_SOURCE_ID = "icon-source-id";
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
     Bundle b;
-    TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
+    private TextView tvOriginalLocation, tvDestinationLocation, tvAddressUser, tvNameUser;
+    private ImageButton btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,13 +95,20 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         bottomSheetBehavior.setPeekHeight(60);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
-
         tvOriginalLocation = findViewById(R.id.tv_original_location);
         tvOriginalLocation.setText("Jl. AP. Pettarani, Makassar");
 
         tvDestinationLocation = findViewById(R.id.tv_destination_location);
         tvAddressUser = findViewById(R.id.tv_address_user);
         tvNameUser = findViewById(R.id.tv_name_user);
+
+        btnBack = findViewById(R.id.ib_back_map);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // set user data
         setUserData();
