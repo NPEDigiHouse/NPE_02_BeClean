@@ -96,8 +96,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                                 // validate password
                                 String tempPassword = snapshot.child("password").getValue().toString();
                                 if (tempPassword.equals(password)) {
-                                    // save user id to local (user's device)
+                                    // save user id to local (user's device) and set pembayaran to false
                                     Util.saveUserIdToLocal(LoginActivity.this, userId);
+                                    Util.savePembayaranToLocal(LoginActivity.this, false);
 
                                     // move to main activity
                                     Intent goToMain = new Intent(LoginActivity.this, MainActivity.class);

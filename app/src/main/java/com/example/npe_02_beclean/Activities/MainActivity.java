@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.R;
 import com.example.npe_02_beclean.Fragments.HomeFragment;
 import com.example.npe_02_beclean.Fragments.ProfileFragment;
@@ -41,7 +42,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.menu_item_pay){
-            Intent i = new Intent(MainActivity.this, PembayaranActivity.class);
+            Intent i;
+            if (Util.getPembayaranLocal(MainActivity.this)) {
+                i = new Intent(MainActivity.this, PembayaranAdaActivity.class);
+            } else {
+                i = new Intent(MainActivity.this, PembayaranKosongActivity.class);
+            }
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
             return true;

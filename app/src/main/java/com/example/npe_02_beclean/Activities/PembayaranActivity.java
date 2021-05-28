@@ -96,6 +96,10 @@ public class PembayaranActivity extends AppCompatActivity {
         btnContinuePay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // set pembayaran to true
+                Util.savePembayaranToLocal(PembayaranActivity.this, true);
+
+                // go to paid
                 Intent goToPaid = new Intent(PembayaranActivity.this, PaidActivity.class);
                 goToPaid.putExtra(PaidActivity.EXTRA_TOTAL_COST, pembayaran.getCostTotal()); // int
                 startActivity(goToPaid);
