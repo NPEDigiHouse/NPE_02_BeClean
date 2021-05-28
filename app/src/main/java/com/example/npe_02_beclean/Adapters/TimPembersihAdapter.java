@@ -18,9 +18,7 @@ import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.Models.TimPembersih;
 import com.example.npe_02_beclean.R;
 import com.squareup.picasso.Picasso;
-
 import org.w3c.dom.Text;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
