@@ -62,6 +62,7 @@
             app:layout_constraintTop_toBottomOf="@id/iv_pic_cleaner"
             app:hintTextColor="#AEAEAE">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nama_tim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sogoe_ui"
@@ -84,49 +85,15 @@
             app:layout_constraintTop_toBottomOf="@id/tf_nama_tim"
             app:hintTextColor="#AEAEAE">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_tarif_perorang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sogoe_ui"
                 android:background="@color/trans"
-                android:inputType="text"
+                android:inputType="number"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <TextView
-            android:id="@+id/tv_lokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lokasi"
-            android:textSize="14sp"
-            android:textColor="@color/grey_primary"
-            app:layout_constraintTop_toBottomOf="@id/tf_tarif"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tf_container_lokasi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:hintEnabled="false"
-            android:layout_marginTop="5dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_lokasi"
-            app:layout_constraintStart_toStartOf="parent"
-            app:hintTextColor="@color/grey_primary"
-            app:boxStrokeColor="@color/grey_primary"
-            app:boxStrokeWidth="2dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_lokasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Pilih Lokasi"
-                android:paddingVertical="15dp"
-                android:inputType="text"
-                android:background="@color/trans"
-                android:textSize="15dp"
-                android:fontFamily="@font/sogoe_ui"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/tv_anggota"
             android:layout_width="wrap_content"
@@ -136,7 +103,7 @@
 
             android:layout_marginTop="10dp"
             android:textColor="@color/grey_primary"
-            app:layout_constraintTop_toBottomOf="@id/tf_container_lokasi"
+            app:layout_constraintTop_toBottomOf="@id/tf_tarif"
             app:layout_constraintStart_toStartOf="parent"/>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tf_container_anggota"
@@ -150,12 +117,12 @@
             app:layout_constraintStart_toStartOf="parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tf_anggota"
+                android:id="@+id/et_tambah_anggota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tambah Anggota"
                 android:paddingVertical="15dp"
-                android:inputType="text"
+                android:inputType="number"
                 android:background="@color/trans"
                 android:textSize="15dp"
                 android:fontFamily="@font/sogoe_ui"
@@ -163,7 +130,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_masuk"
+            android:id="@+id/btn_tambahkan"
             android:layout_width="180dp"
             android:layout_marginTop="40dp"
             android:layout_height="wrap_content"

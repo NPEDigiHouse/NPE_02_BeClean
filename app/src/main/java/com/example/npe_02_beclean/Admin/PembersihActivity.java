@@ -80,6 +80,8 @@ public class PembersihActivity extends AppCompatActivity implements AdminPembers
 
     public void got(View view) {
         Intent i = new Intent(this, AddPembersihActivity.class);
+        finish();
+        startActivity(new Intent(this, PembersihActivity.class));
         startActivity(i);
     }
 

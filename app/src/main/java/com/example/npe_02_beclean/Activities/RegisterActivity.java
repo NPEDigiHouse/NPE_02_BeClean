@@ -187,7 +187,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
             }
         });
-
     }
 
     private Integer generateRandomNumber() {
