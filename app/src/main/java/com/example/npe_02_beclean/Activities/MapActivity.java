@@ -65,6 +65,7 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, Callback<DirectionsResponse> {
 
     // extras
+    public static final String EXTRA_POSITION = "extra_position";
     public static final String EXTRA_TEAM_NAME = "extra_team_name";
     public static final String EXTRA_QUANTITY = "extra_quantity";
     public static final String EXTRA_COST = "extra_cost";
@@ -104,10 +105,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         costService = getIntent().getIntExtra(EXTRA_COST, 0);
 
         // clear intent extras
-        getIntent().removeExtra(TimPembersihActivity.EXTRA_CATEGORY);
-        getIntent().removeExtra(EXTRA_TEAM_NAME);
-        getIntent().removeExtra(EXTRA_QUANTITY);
-        getIntent().removeExtra(EXTRA_COST);
+//        getIntent().removeExtra(TimPembersihActivity.EXTRA_CATEGORY);
+//        getIntent().removeExtra(EXTRA_TEAM_NAME);
+//        getIntent().removeExtra(EXTRA_QUANTITY);
+//        getIntent().removeExtra(EXTRA_COST);
 
         // map attributes
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
@@ -117,8 +118,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        Intent i= getIntent();
-        b = i.getExtras();
+//        Intent i= getIntent();
+//        b = i.getExtras();
 
         // initialize widgets
         View bs = findViewById(R.id.ll_data_map);
@@ -162,9 +163,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onStyleLoaded(@NonNull Style style) {
                 origin = Point.fromLngLat(119.4361434,-5.1456845);
-                if(b!=null){
-                    destination = (Point) b.get("position");
-                }else{
+                if (getIntent().getExtras() != null) {
+                    destination = (Point) getIntent().getExtras().get(EXTRA_POSITION);
+                } else {
                     destination = Point.fromLngLat(119.503707,-5.1258033);
                 }
 
