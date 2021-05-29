@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.mapbox.geojson.Point;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,6 +85,32 @@ public class TimPembersihActivity extends AppCompatActivity implements TimPember
 
         // update adapter's list with data from firebase
         updateTimPembersihList();
+
+        // set user data
+        setUserData();
+    }
+
+    private void setUserData() {
+        // get user data from firebase
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(Util.getUserIdLocal(this));
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                // set data to widgets
+                Picasso.with(TimPembersihActivity.this)
+                        .load(snapshot.child("url_photo_profile").getValue().toString())
+                        .centerCrop()
+                        .fit()
+                        .into(civPhotoProfile);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(TimPembersihActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateTimPembersihList() {
