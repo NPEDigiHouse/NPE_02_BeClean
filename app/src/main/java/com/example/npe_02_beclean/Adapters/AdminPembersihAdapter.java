@@ -3,7 +3,6 @@ package com.example.npe_02_beclean.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.npe_02_beclean.Helpers.Util;
 import com.example.npe_02_beclean.Models.AdminPembersih;
 import com.example.npe_02_beclean.R;
 import com.squareup.picasso.Picasso;
@@ -56,7 +54,7 @@ public class AdminPembersihAdapter extends RecyclerView.Adapter<AdminPembersihAd
         OnItemClick onItemClick;
         ImageView ivImage;
         TextView tvName, tvTotalMember;
-        ImageButton btnEdit, btnDelete;
+        ImageButton btnDelete;
 
         public ViewHolder(@NonNull View itemView, OnItemClick onItemClick) {
             super(itemView);
@@ -66,30 +64,22 @@ public class AdminPembersihAdapter extends RecyclerView.Adapter<AdminPembersihAd
             ivImage = itemView.findViewById(R.id.iv_image_item_pembersih);
             tvName = itemView.findViewById(R.id.tv_team_name_item_pembersih);
             tvTotalMember = itemView.findViewById(R.id.tv_total_member_item_pembersih);
-            btnEdit = itemView.findViewById(R.id.ib_edit_item_pembersih);
             btnDelete = itemView.findViewById(R.id.ib_delete_item_pembersih);
 
             // if button clicked
-            btnEdit.setOnClickListener(this);
             btnDelete.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.ib_edit_item_pembersih:
-                    onItemClick.btnEditClicked(getAbsoluteAdapterPosition());
-                    break;
-                case R.id.ib_delete_item_pembersih:
-                    onItemClick.btnDeleteClicked(getAbsoluteAdapterPosition());
-                    break;
+            if (v.getId() == R.id.ib_delete_item_pembersih) {
+                onItemClick.btnDeleteClicked(getAbsoluteAdapterPosition());
             }
         }
     }
 
     public interface OnItemClick {
-        void btnEditClicked(int position);
         void btnDeleteClicked(int position);
     }
 }
