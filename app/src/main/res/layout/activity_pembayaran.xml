@@ -234,18 +234,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     />
                 <TextView
-                    android:id="@+id/tv_alamat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/tv_lokasi"
-                    app:layout_constraintBottom_toBottomOf="@id/tv_lokasi"
-                    android:text="@string/pembayaran_11_gun"
-                    android:textSize="11sp"
-                    android:textColor="@color/blue_primary"
-                    android:textStyle="bold"
-                    android:layout_marginRight="5dp"/>
-                <TextView
                     android:id="@+id/tv_alamat_pembayaran"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

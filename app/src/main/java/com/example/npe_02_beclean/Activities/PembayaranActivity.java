@@ -41,56 +41,19 @@ public class PembayaranActivity extends AppCompatActivity {
             tvAddress, tvDistance, tvDuration,
             tvCostService, tvCostTransport, tvCostTotal;
     private Button btnContinuePay;
-
     private Pembayaran pembayaran;
 
-    //Maps Attribut
-    TextView tvGoMaps;
-    LocationManager locationManager;
-    String latitude,longitude;
-    Point myLocation;
-
-
-
-    private static  final int REQUEST_LOCATION=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pembayaran);
 
-
-        //Add permission
-        ActivityCompat.requestPermissions(this,new String[]
-                {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-
         // initialize widgets
         initializeWidgets();
 
         // set data to widgets
         setDataToWidgets();
-
-        // maps
-        tvGoMaps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                locationManager=(LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                //Check gps is enable or not
-                if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-                {
-                    //Write Function To enable gps
-                    OnGPS();
-                }
-                else
-                {
-                    //GPS is already On then
-                    getLocation();
-                    Intent i = new Intent(PembayaranActivity.this, MapActivity.class);
-                    i.putExtra("position", myLocation);
-                    startActivity(i);
-                }
-            }
-        });
 
         // continue paying
         btnContinuePay.setOnClickListener(new View.OnClickListener() {
@@ -118,7 +81,6 @@ public class PembayaranActivity extends AppCompatActivity {
         tvCostService = findViewById(R.id.tv_harga_layanan_pembayaran);
         tvCostTransport = findViewById(R.id.tv_biaya_transportasi_pembarayan);
         tvCostTotal = findViewById(R.id.tv_total_cost_pembayaran);
-        tvGoMaps=findViewById(R.id.tv_alamat);
         btnContinuePay = findViewById(R.id.btn_lanjutkan_pembayaran);
     }
 
@@ -135,71 +97,9 @@ public class PembayaranActivity extends AppCompatActivity {
         tvCostTotal.setText(Util.convertToRupiah(String.valueOf(pembayaran.getCostTotal())));
     }
 
-    // open maps function -------------------------------------------------------------------------------------------------
-    private void getLocation() {
-        //Check Permissions again
-        if (ActivityCompat.checkSelfPermission(PembayaranActivity.this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(PembayaranActivity.this,
-
-                Manifest.permission.ACCESS_COARSE_LOCATION) !=PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this,new String[]
-                    {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
-        }
-        else
-        {
-            Location LocationGps= locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            Location LocationNetwork=locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            Location LocationPassive=locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-
-            if (LocationGps !=null)
-            {
-                double lat=LocationGps.getLatitude();
-                double longi=LocationGps.getLongitude();
-                myLocation = Point.fromLngLat(longi,lat);
-            }
-            else if (LocationNetwork !=null)
-            {
-                double lat=LocationNetwork.getLatitude();
-                double longi=LocationNetwork.getLongitude();
-                myLocation = Point.fromLngLat(longi,lat);
-            }
-            else if (LocationPassive !=null)
-            {
-                double lat=LocationPassive.getLatitude();
-                double longi=LocationPassive.getLongitude();
-                myLocation = Point.fromLngLat(longi,lat);
-            }
-            else
-            {
-                Toast.makeText(this, "Can't Get Your Location", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-    }
-
-    private void OnGPS() {
-
-        final AlertDialog.Builder builder= new AlertDialog.Builder(this);
-
-        builder.setMessage("Enable GPS").setCancelable(false).setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-            }
-        }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.cancel();
-            }
-        });
-        final AlertDialog alertDialog=builder.create();
-        alertDialog.show();
-    }
-
     public void back(View view) {
-        Intent i = new Intent(this, TimPembersihActivity.class);
-        startActivity(i);
+//        Intent i = new Intent(this, TimPembersihActivity.class);
+//        startActivity(i);
         finish();
     }
 }
