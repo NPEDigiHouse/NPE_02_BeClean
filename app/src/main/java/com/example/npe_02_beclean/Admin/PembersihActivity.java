@@ -86,11 +86,6 @@ public class PembersihActivity extends AppCompatActivity implements AdminPembers
     }
 
     @Override
-    public void btnEditClicked(int position) {
-        Toast.makeText(this, adminPembersihList.get(position).getName() + " clicked", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void btnDeleteClicked(int position) {
         // get tim reference
         DatabaseReference teamsRef = FirebaseDatabase.getInstance().getReference()
@@ -112,6 +107,7 @@ public class PembersihActivity extends AppCompatActivity implements AdminPembers
                 Toast.makeText(PembersihActivity.this, "Terjadi kesalahan pada database.", Toast.LENGTH_SHORT).show();
             }
         });
+        Toast.makeText(this, "Tim berhasil dihapus", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(PembersihActivity.this, PembersihActivity.class));
         finish();
     }
